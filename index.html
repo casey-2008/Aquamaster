@@ -87,6 +87,16 @@ nav::before{content:'';position:absolute;inset:0;background:linear-gradient(180d
 .s-label{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--water);margin-bottom:80px;display:flex;align-items:center;gap:16px}
 .s-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(0,170,255,.3),transparent);max-width:200px}
 .s-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.s-card.pipe-zone .s-tag{color:#00e5b0}
+.s-card.pipe-zone .s-price-val{color:#00e5b0}
+.s-card.pipe-zone .s-feats li::before{background:#00e5b0}
+.s-card.pipe-zone .s-card-bg{background:radial-gradient(ellipse at -20% -20%,rgba(0,229,176,.06),transparent 60%)}
+.s-card.pipe-zone::after{background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(135deg,transparent 40%,rgba(0,229,176,.3),transparent 60%) border-box}
+.s-card.sewer-zone .s-tag{color:#a78bfa}
+.s-card.sewer-zone .s-price-val{color:#a78bfa}
+.s-card.sewer-zone .s-feats li::before{background:#a78bfa}
+.s-card.sewer-zone .s-card-bg{background:radial-gradient(ellipse at -20% -20%,rgba(167,139,250,.06),transparent 60%)}
+.s-card.sewer-zone::after{background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(135deg,transparent 40%,rgba(167,139,250,.3),transparent 60%) border-box}
 .s-card{background:var(--card);padding:64px 56px;position:relative;overflow:hidden;cursor:none;transform-style:preserve-3d;transition:box-shadow .3s}
 .s-card-glare{position:absolute;inset:0;opacity:0;transition:opacity .3s;pointer-events:none;z-index:3}
 .s-card-bg{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s}
@@ -257,28 +267,10 @@ footer{padding:56px 56px 0;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:
 <section class="services" id="services">
   <div class="s-label">Наши услуги</div>
   <div class="s-grid">
-    <div class="s-card reveal" id="card-water">
-      <div class="s-card-glare" id="glare-water"></div>
-      <div class="s-card-bg"></div>
-      <div class="s-card-inner">
-        <div class="s-icon">
-          <svg viewBox="0 0 72 72" fill="none">
-            <defs><radialGradient id="wg" cx="50%" cy="30%" r="70%"><stop offset="0%" stop-color="#0af" stop-opacity=".9"/><stop offset="100%" stop-color="#006" stop-opacity=".2"/></radialGradient></defs>
-            <path d="M36 8 C36 8, 14 32, 14 46 C14 59 24 64 36 64 C48 64 58 59 58 46 C58 32 36 8 36 8Z" stroke="#0af" stroke-width="1.5" fill="url(#wg)"/>
-            <path d="M24 44 C24 44, 26 36, 34 36" stroke="rgba(0,170,255,.5)" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="36" cy="46" r="4" fill="#0af" opacity=".8"><animate attributeName="r" values="4;5;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;.5;.8" dur="2s" repeatCount="indefinite"/></circle>
-          </svg>
-        </div>
-        <div class="s-tag">Услуга 01</div>
-        <h2 class="s-title">Установка<br>водомата</h2>
-        <p class="s-desc">Монтируем системы водоснабжения и учёта воды под ключ. Любые типы счётчиков и фильтров.</p>
-        <div class="s-price-row"><span class="s-price-from">от</span><span class="s-price-val">30 000 ₽</span></div>
-        <ul class="s-feats"><li>Демонтаж старого оборудования</li><li>Монтаж и подключение</li><li>Опломбирование счётчика</li><li>Гарантия на работы</li></ul>
-      </div>
-      <div class="s-big-num">01</div>
-    </div>
-    <div class="s-card heat-zone reveal" style="transition-delay:.15s" id="card-heat">
-      <div class="s-card-glare" id="glare-heat"></div>
+
+    <!-- 01 Тёплый пол -->
+    <div class="s-card heat-zone reveal" id="card-heat">
+      <div class="s-card-glare"></div>
       <div class="s-card-bg"></div>
       <div class="s-card-inner">
         <div class="s-icon">
@@ -289,14 +281,88 @@ footer{padding:56px 56px 0;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:
             <path d="M28 56 C28 56, 28 38, 36 38 C44 38, 44 22, 44 22" stroke="rgba(255,140,0,.5)" stroke-width="1.5" stroke-linecap="round"><animate attributeName="stroke-dasharray" values="0 150;75 75;150 0" dur="2.5s" begin=".5s" repeatCount="indefinite"/></path>
           </svg>
         </div>
-        <div class="s-tag">Услуга 02</div>
+        <div class="s-tag">Услуга 01</div>
         <h2 class="s-title">Тёплый пол<br>водяной</h2>
         <p class="s-desc">Проектируем и монтируем водяные тёплые полы в квартирах и частных домах. Все виды помещений.</p>
         <div class="s-price-row"><span class="s-price-from">от</span><span class="s-price-val">500 ₽/м²</span></div>
         <ul class="s-feats"><li>Проектирование системы</li><li>Укладка труб и стяжка</li><li>Подключение к котлу</li><li>Опрессовка и запуск</li></ul>
       </div>
+      <div class="s-big-num">01</div>
+    </div>
+
+    <!-- 02 Прокладка труб -->
+    <div class="s-card pipe-zone reveal" style="transition-delay:.15s">
+      <div class="s-card-glare"></div>
+      <div class="s-card-bg"></div>
+      <div class="s-card-inner">
+        <div class="s-icon">
+          <svg viewBox="0 0 72 72" fill="none">
+            <defs><linearGradient id="pg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00e5b0" stop-opacity=".9"/><stop offset="100%" stop-color="#00b386" stop-opacity=".4"/></linearGradient></defs>
+            <rect x="8" y="28" width="56" height="10" rx="5" stroke="#00e5b0" stroke-width="1.5" fill="rgba(0,229,176,.08)"/>
+            <rect x="8" y="44" width="56" height="10" rx="5" stroke="rgba(0,229,176,.5)" stroke-width="1.5" fill="rgba(0,229,176,.04)"/>
+            <line x1="18" y1="18" x2="18" y2="28" stroke="#00e5b0" stroke-width="2" stroke-linecap="round"/>
+            <line x1="36" y1="14" x2="36" y2="28" stroke="#00e5b0" stroke-width="2" stroke-linecap="round"/>
+            <line x1="54" y1="18" x2="54" y2="28" stroke="#00e5b0" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="18" cy="16" r="3" fill="#00e5b0"><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="36" cy="12" r="3" fill="#00e5b0"><animate attributeName="opacity" values="1;.3;1" dur="2s" begin=".6s" repeatCount="indefinite"/></circle>
+            <circle cx="54" cy="16" r="3" fill="#00e5b0"><animate attributeName="opacity" values="1;.3;1" dur="2s" begin="1.2s" repeatCount="indefinite"/></circle>
+          </svg>
+        </div>
+        <div class="s-tag">Услуга 02</div>
+        <h2 class="s-title">Прокладка труб<br>водоснабжения</h2>
+        <p class="s-desc">Монтируем трубопроводы холодного и горячего водоснабжения в квартирах, домах и офисах.</p>
+        <div class="s-price-row"><span class="s-price-from">от</span><span class="s-price-val">1 500 ₽/м²</span></div>
+        <ul class="s-feats"><li>Разводка от стояка до точек потребления</li><li>Полипропилен, металлопластик, медь</li><li>Скрытая и открытая прокладка</li><li>Опрессовка системы</li></ul>
+      </div>
       <div class="s-big-num">02</div>
     </div>
+
+    <!-- 03 Канализация -->
+    <div class="s-card sewer-zone reveal" style="transition-delay:.3s">
+      <div class="s-card-glare"></div>
+      <div class="s-card-bg"></div>
+      <div class="s-card-inner">
+        <div class="s-icon">
+          <svg viewBox="0 0 72 72" fill="none">
+            <defs><linearGradient id="sg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#a78bfa" stop-opacity=".9"/><stop offset="100%" stop-color="#7c3aed" stop-opacity=".3"/></linearGradient></defs>
+            <rect x="16" y="8" width="12" height="20" rx="3" stroke="#a78bfa" stroke-width="1.5" fill="rgba(167,139,250,.08)"/>
+            <rect x="44" y="8" width="12" height="20" rx="3" stroke="rgba(167,139,250,.5)" stroke-width="1.5" fill="rgba(167,139,250,.04)"/>
+            <path d="M22 28 L22 44 L50 44 L50 28" stroke="url(#sg)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <rect x="10" y="44" width="52" height="10" rx="5" stroke="#a78bfa" stroke-width="1.5" fill="rgba(167,139,250,.08)"/>
+            <line x1="36" y1="54" x2="36" y2="64" stroke="#a78bfa" stroke-width="2" stroke-linecap="round"><animate attributeName="y2" values="58;64;58" dur="1.8s" repeatCount="indefinite"/></line>
+          </svg>
+        </div>
+        <div class="s-tag">Услуга 03</div>
+        <h2 class="s-title">Монтаж<br>канализации</h2>
+        <p class="s-desc">Проектируем и прокладываем системы канализации в квартирах и частных домах. Любая сложность.</p>
+        <div class="s-price-row"><span class="s-price-from">от</span><span class="s-price-val">2 000 ₽/м²</span></div>
+        <ul class="s-feats"><li>Разводка внутренней канализации</li><li>Подключение сантехприборов</li><li>Установка трапов и ревизий</li><li>Наружная канализация для домов</li></ul>
+      </div>
+      <div class="s-big-num">03</div>
+    </div>
+
+    <!-- 04 Водомат -->
+    <div class="s-card reveal" style="transition-delay:.45s" id="card-water">
+      <div class="s-card-glare"></div>
+      <div class="s-card-bg"></div>
+      <div class="s-card-inner">
+        <div class="s-icon">
+          <svg viewBox="0 0 72 72" fill="none">
+            <defs><radialGradient id="wg" cx="50%" cy="30%" r="70%"><stop offset="0%" stop-color="#0af" stop-opacity=".9"/><stop offset="100%" stop-color="#006" stop-opacity=".2"/></radialGradient></defs>
+            <path d="M36 8 C36 8, 14 32, 14 46 C14 59 24 64 36 64 C48 64 58 59 58 46 C58 32 36 8 36 8Z" stroke="#0af" stroke-width="1.5" fill="url(#wg)"/>
+            <path d="M24 44 C24 44, 26 36, 34 36" stroke="rgba(0,170,255,.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="36" cy="46" r="4" fill="#0af" opacity=".8"><animate attributeName="r" values="4;5;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;.5;.8" dur="2s" repeatCount="indefinite"/></circle>
+          </svg>
+        </div>
+        <div class="s-tag">Услуга 04</div>
+        <h2 class="s-title">Установка<br>водомата</h2>
+        <p class="s-desc">Монтируем системы водоснабжения и учёта воды под ключ. Любые типы счётчиков и фильтров.</p>
+        <div class="s-price-row"><span class="s-price-from">от</span><span class="s-price-val">30 000 ₽</span></div>
+        <ul class="s-feats"><li>Демонтаж старого оборудования</li><li>Монтаж и подключение</li><li>Опломбирование счётчика</li><li>Гарантия на работы</li></ul>
+      </div>
+      <div class="s-big-num">04</div>
+    </div>
+
   </div>
 </section>
 
@@ -336,7 +402,7 @@ footer{padding:56px 56px 0;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:
     <div class="fg"><input class="fi" id="f-name" type="text" placeholder=" "><label for="f-name">Ваше имя</label></div>
     <div class="fg"><input class="fi" id="f-tel" type="tel" placeholder=" "><label for="f-tel">Телефон</label></div>
     <div class="fg">
-      <select class="fi" id="f-srv"><option value="" disabled selected></option><option>Установка водомата</option><option>Монтаж тёплого пола</option><option>Оба варианта</option></select>
+      <select class="fi" id="f-srv"><option value="" disabled selected></option><option>Тёплый пол водяной</option><option>Прокладка труб водоснабжения</option><option>Монтаж канализации</option><option>Установка водомата</option><option>Несколько услуг</option></select>
       <label for="f-srv">Услуга</label>
     </div>
     <div class="fg"><input class="fi" id="f-addr" type="text" placeholder=" "><label for="f-addr">Адрес объекта</label></div>
